@@ -1,0 +1,38 @@
+/**
+ * Created by VadimMakarenko on 01.12.2016.
+ * Germany, Karlsruhe.
+ **/
+ul.xhr_pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.xhr_pagination li {
+    display: inline;
+    cursor: pointer;
+}
+
+ul.xhr_pagination li a {
+    color: white;
+    background-color: rgb(255, 0, 85);
+    float: left;
+    padding: 3px 6px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+}
+
+ul.xhr_pagination li a.active {
+    background-color: #787e8e;
+    color: white;
+    border: 1px solid #787e8e;
+}
+
+ul.xhr_pagination li a:hover:not(.active) {
+    background-color: rgb(147, 0, 67);
+}
+.hidden_xhr{
+    visibility: hidden;
+    display: none;
+}
