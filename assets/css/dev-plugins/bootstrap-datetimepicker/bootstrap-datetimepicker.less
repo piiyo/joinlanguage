@@ -1,0 +1,267 @@
+/*!
+ * Datetimepicker for Bootstrap 3
+//! version : 4.0.0
+ * https://github.com/Eonasdan/bootstrap-datetimepicker/
+ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.bootstrap-datetimepicker-widget {
+    &.dropdown-menu {
+        margin: 2px 0;
+        padding: 2px 2px 1px 1px;
+        width: 19em;
+
+        &.timepicker-sbs {
+            @media (min-width: 768px) {
+                width: 38em;
+            }
+            @media (min-width: 992px) {
+                width: 38em;
+            }
+            @media (min-width: 1200px) {
+                width: 38em;
+            }
+        }
+        
+    }
+
+    .list-unstyled {
+        margin: 0;
+    }
+
+    a[data-action] {
+        padding: 6px 0;
+    }
+
+    a[data-action]:active {
+        box-shadow: none;
+    }
+
+    .timepicker-hour, .timepicker-minute, .timepicker-second {
+        width: 54px;
+        font-weight: bold;
+        font-size: 1.2em;
+        margin: 0;
+    }
+
+    button[data-action] {
+        padding: 6px;
+    }
+
+    .btn[data-action="incrementHours"]::after {
+        .sr-only();
+        content: "Increment Hours";
+    }
+    .btn[data-action="incrementMinutes"]::after {
+        .sr-only();
+        content: "Increment Minutes";
+    }
+    .btn[data-action="decrementHours"]::after {
+        .sr-only();
+        content: "Decrement Hours";
+    }
+    .btn[data-action="decrementMinutes"]::after {
+        .sr-only();
+        content: "Decrement Minutes";
+    }
+    .btn[data-action="showHours"]::after {
+        .sr-only();
+        content: "Show Hours";
+    }
+    .btn[data-action="showMinutes"]::after {
+        .sr-only();
+        content: "Show Minutes";
+    }
+    .btn[data-action="togglePeriod"]::after {
+        .sr-only();
+        content: "Toggle AM/PM";
+    }
+
+    .picker-switch {
+        text-align: center;
+        &::after {
+            .sr-only();
+            content: "Toggle Date and Time Screens";
+        }
+        td {
+            padding: 0;
+            margin: 0;
+            height: auto;
+            width: auto;
+            line-height: inherit;
+            span {
+                line-height: 2.5;
+                height: 2.5em;
+                width: 100%;
+            }
+        }
+    }
+
+    table {
+        width: 100%;
+        margin: 0;
+    }
+
+    td,
+    th {
+        text-align: center;
+        .box-transition-background-color(200ms);
+    }
+
+    th {
+        height: 20px;
+        line-height: 20px;
+        width: 20px;
+        color: @dev-default-font-color;
+
+        &.picker-switch {
+            width: 145px;
+        }
+
+        &.disabled,
+        &.disabled:hover {
+            background: none;
+            color: @dev-default-font-color;
+            cursor: not-allowed;
+        }
+
+        &.prev::after {
+            .sr-only();
+            content: "Previous Month";
+        }
+        &.next::after {
+            .sr-only();
+            content: "Next Month";
+        }
+    }
+
+    thead tr:first-child th {
+        cursor: pointer;
+
+        &:hover {
+            background: @dev-default-background;
+        }
+    }
+
+    td {
+        height: 54px;
+        line-height: 54px;
+        width: 54px;
+        background: #FFF;
+        border-radius: @dev-default-border-radius;
+        
+        &.cw {
+            font-size: .8em;
+            height: 20px;
+            line-height: 20px;
+            color: @dev-default-font-color;
+        }
+
+        &.day
+        {
+            height: 20px;
+            line-height: 20px;
+            width: 20px;
+        }
+
+        &.day:hover,
+            &.hour:hover,
+            &.minute:hover,
+            &.second:hover {
+            background: @dev-default-background-hover;
+            cursor: pointer;
+        }
+
+        &.old,
+        &.new {
+            color: @dev-default-font-color;
+        }
+
+        &.today {
+            position: relative;
+
+            &:before {
+                content: '';
+                display: inline-block;
+                border-left: 7px solid transparent;
+                border-bottom: 7px solid @dev-default-background-active;
+                border-top-color: rgba(0, 0, 0, 0.2);
+                position: absolute;
+                bottom: 4px;
+                right: 4px;
+            }
+        }
+
+        &.active,
+        &.active:hover {
+            background-color: @dev-default-background-active;
+            color: @dev-default-font-active-color;            
+        }
+
+        &.active.today:before {
+            border-bottom-color: #fff;
+        }
+
+        &.disabled,
+        &.disabled:hover {
+            background: none;
+            color: @dev-default-font-sub-color;
+            cursor: not-allowed;
+        }
+
+        span {
+            display: inline-block;
+            width: 54px;
+            height: 54px;
+            line-height: 54px;
+            margin: 2px 2px 2px 1px;
+            cursor: pointer;            
+            color: @dev-default-font-color;
+            background: @dev-default-background-focus;            
+
+            &:hover {
+                background: @dev-default-background;                
+            }
+
+            &.active {
+                background-color: @dev-default-background-active;
+                color: @dev-default-font-active-color;
+                border-radius: @dev-default-border-radius;
+            }
+
+            &.old {
+                color: @dev-default-font-color;
+            }
+
+            &.disabled,
+            &.disabled:hover {
+                background: none;
+                color: @dev-default-font-color;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    &.usetwentyfour {
+        td.hour {
+            height: 27px;
+            line-height: 27px;
+        }
+    }
+}
+
+.input-group.date {
+    & .input-group-addon {
+        cursor: pointer;
+    }
+}

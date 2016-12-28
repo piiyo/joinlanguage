@@ -1,0 +1,131 @@
+.dataTable{
+    float: left; 
+    margin-bottom: 5px;
+}        
+.dataTable div.checker, .dataTable div.radio{
+    display: inherit;
+}
+
+.dataTables_wrapper{
+    float: left;
+    width: 100%;
+}
+
+.dataTables_length{
+    width: 50%; 
+    float: left; 
+    margin-bottom: 10px;
+}
+.dataTables_length label,.dataTables_filter label{
+    font-weight: 400;
+}
+.dataTables_length select{
+    width: 70px; 
+    display: inline; 
+    margin: 0px 10px;
+    
+    &:focus{
+        border-color: @dev-default-border-color-active;
+        -webkit-box-shadow: none; box-shadow: none; 
+    }
+}
+.dataTables_filter{
+    width: 50%; 
+    float: right; 
+    margin-bottom: 10px;
+}
+.dataTables_filter label{
+    float: right;
+}
+.dataTables_filter label input{
+    width: 150px; 
+    display: inline; 
+    margin-left: 10px;
+    
+    &:focus{
+        border-color: @dev-default-border-color-active;
+        -webkit-box-shadow: none; box-shadow: none; 
+    }
+}
+td.dataTables_empty{
+    text-align: center;
+}
+
+.dataTables_info{
+    float: left; 
+    font-size: 12px; 
+    padding: 0px; 
+    line-height: 35px;
+    margin-top: 10px;
+}        
+.dataTables_paginate{
+    padding: 0px; 
+    text-align: right; 
+    float: right; 
+    margin-top: 10px;
+}
+
+.dataTables_paginate a.paginate_disabled_previous,.dataTables_paginate a.paginate_disabled_next,.dataTables_paginate a.paginate_button,.paginate_enabled_next,.paginate_active,.paginate_enabled_previous
+{
+    cursor: pointer;
+    float: left;
+    line-height: @dev-unit * 5 - 2;
+    padding: @dev-unit @dev-unit * 3;
+    font-size: @dev-button-font-size;
+    .box-transition-all(200ms);
+    font-weight: 400;
+    border: 1px solid @dev-button-default-border-color;
+    background: @dev-button-default-background;
+    margin-right: 5px;
+    color: @dev-default-font-color;                
+    .border-radius(@dev-unit);    
+}
+
+.dataTables_paginate .paginate_enabled_next:hover,.dataTables_paginate a.paginate_button:hover,.dataTables_paginate .paginate_enabled_previous:hover
+{    
+    background-color: #eeeeee;
+    border-color: #dddddd;
+    text-decoration: none;
+}
+.dataTables_paginate .paginate_button.current,
+.dataTables_paginate .paginate_button.current:hover{
+    background: @dev-button-primary-background;
+    border-color: @dev-button-primary-border-color;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.dataTables_paginate a.paginate_button.next.disabled,.dataTables_paginate a.paginate_button.previous.disabled
+{
+    cursor: default; 
+    color: #ccc;
+    background: @dev-button-default-background;
+}                
+.dataTables_paginate a.paginate_button.next.disabled:hover,.dataTables_paginate a.paginate_button.previous.disabled:hover{
+    box-shadow: none; 
+    color: #ccc;
+    background: @dev-button-default-background;
+}
+
+.sorting_desc,.sorting_asc,.sorting{
+    position: relative; 
+    cursor: pointer; 
+    padding-right: 20px !important;
+}
+
+.sorting:before,.sorting_desc:before,.sorting_asc:before
+{
+    position: absolute; 
+    top: 15px; 
+    right: 5px; 
+    font-family: 'FontAwesome';     
+    width: 10px; 
+    height: 10px; 
+    display: block;
+    color: @dev-default-font-color;
+}
+.sorting:before{content: "\f0dc"; .opacity(0.5);}
+.sorting_desc:before{content: "\f0d8";}
+.sorting_asc:before{content: "\f0d7";}
+
+.sorting_asc_disabled:before,.sorting_desc_disabled:before{.opacity(0.1);}

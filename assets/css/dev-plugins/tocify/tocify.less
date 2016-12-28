@@ -1,0 +1,57 @@
+/* Tocify */
+.tocify{
+    width: 200px;
+    max-height: 90%; 
+    overflow: auto; 
+    position: fixed; 
+    border: 1px solid #E5E5E5; 
+    .border-radius(5px); 
+    
+    ul,li{list-style: none;margin: 0;padding: 0;border: none;line-height: 30px;}
+    
+    ul{
+        &.tocify-header{
+            > li > a{border-bottom: 1px solid #E5E5E5;}
+        }
+        &.tocify-subheader{display: none;
+            li.tocify-item{
+                a{background: #F5F5F5;
+                    &:hover{background: #F0F0F0;}
+                }
+                &.active{
+                    a{background: @dev-theme-background;}
+                }
+            }
+        }
+        &:last-child{
+            li:last-child{
+                a{border-bottom: 0px;}
+            }
+        }
+    }
+    li{
+        &.tocify-item{
+            a{
+                background: #FFF; 
+                padding: @dev-unit * 2; 
+                font-size: 12px; 
+                color: #333; 
+                line-height: @dev-unit * 5; 
+                border-bottom: 1px solid @dev-default-border-radius;
+                
+                &:hover{background: #F5F5F5;}
+            }
+            &.active{
+                a{background: @dev-theme-background; color: #FFF;}
+            }
+        }
+
+    }    
+
+}
+.tocify-header{text-indent: 10px;}
+.tocify-subheader {text-indent: 20px;}
+.tocify-subheader li{font-size: 12px;}
+.tocify-subheader .tocify-subheader {text-indent: 30px;}
+.tocify-subheader .tocify-subheader .tocify-subheader {text-indent: 40px;}                    
+/* END Tocify */

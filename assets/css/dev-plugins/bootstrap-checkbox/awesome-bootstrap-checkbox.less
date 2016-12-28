@@ -1,0 +1,192 @@
+//
+// Checkboxes
+// --------------------------------------------------
+
+.checkbox-variant(@parent, @color) {
+  .@{parent} input[type="checkbox"]:checked + label {
+    &::before {
+      background-color: @color;
+      border-color: @color;
+    }
+    &::after {
+      color: #fff;
+    }
+  }
+}
+
+
+.checkbox{
+  padding-left: @dev-unit * 5;
+  margin-top: @dev-unit;
+  margin-bottom: @dev-unit;
+
+  label{
+    display: inline-block;
+    position: relative;
+    padding-left: @dev-unit;
+
+    &::before{
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: @dev-unit * 5;
+      height: @dev-unit * 5;
+      top: 2px;
+      left: 0;
+      margin-left: -@dev-unit * 5;
+      border: 1px solid @dev-default-border-color;
+      border-radius: @dev-default-border-radius;
+      background-color: @dev-default-background;
+      .transition(~"border 0.15s ease-in-out, color 0.15s ease-in-out");
+    }
+
+    &::after{
+      display: inline-block;
+      position: absolute;
+      width: @dev-unit * 5;
+      height: @dev-unit * 5;
+      line-height: @dev-unit * 5;
+      left: 0;
+      top: 0px;
+      margin-left: -@dev-unit * 5;
+      padding-top: 1px;
+      font-size: 13px;
+      text-align: center;
+      color: @dev-default-font-color;
+    }
+  }
+
+  input[type="checkbox"]{
+    opacity: 0;
+
+    &:focus + label::before{
+      //.tab-focus();
+    }
+
+    &:checked + label::after{
+      font-family: 'FontAwesome';
+      content: @fa-var-check;
+    }
+
+    &:disabled + label{
+      opacity: 0.65;
+
+      &::before{
+        background-color: @gray-lighter;
+        cursor: not-allowed;
+      }
+    }
+
+  }
+
+  &.checkbox-circle label::before{
+    border-radius: 50%;
+  }
+
+  &.checkbox-inline{
+    margin-top: @dev-unit;
+  }
+}
+
+.checkbox-variant(checkbox-primary, @brand-primary);
+.checkbox-variant(checkbox-danger, @brand-danger);
+.checkbox-variant(checkbox-info, @brand-info);
+.checkbox-variant(checkbox-warning, @brand-warning);
+.checkbox-variant(checkbox-success, @brand-success);
+
+//
+// Radios
+// --------------------------------------------------
+
+.radio-variant(@parent, @color) {
+  .@{parent} input[type="radio"]{
+    & + label{
+      &::after{
+        background-color: @color;
+      }
+    }
+    &:checked + label{
+      &::before {
+        border-color: @color;
+      }
+      &::after{
+        background-color: @color;
+      }
+    }
+  }
+}
+
+.radio{
+  padding-left: @dev-unit * 5;
+  margin-top: @dev-unit;
+  margin-bottom: @dev-unit;  
+
+  label{
+    display: inline-block;
+    position: relative;
+    padding-left: @dev-unit;
+
+    &::before{
+      content: "";
+      display: inline-block;
+      position: absolute;
+      width: @dev-unit * 5;
+      height: @dev-unit * 5;
+      top: 2px;
+      left: 0;
+      margin-left: -@dev-unit * 5;
+      border: 1px solid @dev-default-border-color;
+      border-radius: 50%;
+      background-color: @dev-default-background;
+      .transition(border 0.25s ease-in-out);
+    }
+
+    &::after{
+      display: inline-block;
+      position: absolute;
+      content: " ";
+      width: @dev-unit * 3;
+      height: @dev-unit * 3;
+      left: @dev-unit;
+      top: @dev-unit + 2;
+      margin-left: -@dev-unit * 5;
+      border-radius: 50%;
+      background-color: @gray;
+      .scale(0, 0);
+
+      .transition-transform(.2s cubic-bezier(.8,-0.33,.2,1.33));
+      //curve - http://cubic-bezier.com/#.8,-0.33,.2,1.33
+    }
+  }
+
+  input[type="radio"]{
+    opacity: 0;
+
+    &:focus + label::before{
+      //.tab-focus();
+    }
+
+    &:checked + label::after{
+      .scale(1, 1);
+    }
+
+    &:disabled + label{
+      opacity: 0.65;
+
+      &::before{
+        cursor: not-allowed;
+      }
+    }
+
+  }
+
+  &.radio-inline{
+    margin-top: @dev-unit;
+  }
+}
+
+.radio-variant(radio-primary, @brand-primary);
+.radio-variant(radio-danger, @brand-danger);
+.radio-variant(radio-info, @brand-info);
+.radio-variant(radio-warning, @brand-warning);
+.radio-variant(radio-success, @brand-success);
